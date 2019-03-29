@@ -61,6 +61,21 @@ const createReceive = async (req: Request, res: Response) => {
   })
 };
 
+const getTransaction = async (req: Request, res: Response) => {
+  const {user_id} = req.query;
+  const txs = await txRepository.find({
+    where: [
+      {
+        from: user_id
+      },
+      {
+        to: user_id
+      }
+    ]
+  });
+  return res.json(txs);
+};
+
 export {
-  createPayment, createReturn, createReceive
+  createPayment, createReturn, createReceive, getTransaction
 }
