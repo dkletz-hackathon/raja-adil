@@ -1,3 +1,5 @@
+import RedisService from "./RedisService";
+
 require("express-async-errors");
 import Server from './Server';
 import DatabaseService from './DatabaseService';
@@ -5,6 +7,7 @@ import * as http from 'http';
 
 async function start() {
   await DatabaseService.createConnection();
+  await RedisService.createClient();
   const server = new Server();
   const app = http.createServer(server.express);
   const port = process.env.PORT || 3030;
