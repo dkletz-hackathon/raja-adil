@@ -1,0 +1,22 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "raja_adil",
+  "password": "raja_adil",
+  "database": "raja_adil_dev",
+  "synchronize": true,
+  "migrationsRun": true,
+  "logging": false,
+  "entities": [
+    "src/models/**/*.ts"
+  ],
+  "migrations": [
+    "src/migrations/**/*.ts"
+  ],
+  "migrationsTableName": "migrations",
+  "cli": {
+    "entitiesDir": "src/models",
+    "migrationsDir": "src/migrations"
+  }
+}
