@@ -35,6 +35,12 @@ class Server {
             code: error.code
           });
         }
+        if (error.code === "error/transaction/error") {
+          return res.status(400).json({
+            error: error.message,
+            code: error.code
+          })
+        }
         return res.status(500).json({
           error: error.message
         });

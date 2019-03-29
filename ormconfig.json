@@ -9,10 +9,10 @@
   "migrationsRun": true,
   "logging": false,
   "entities": [
-    "src/models/**/*.ts"
+    "dist/models/**/*.js"
   ],
   "migrations": [
-    "src/migrations/**/*.ts"
+    "dist/migrations/**/*.js"
   ],
   "migrationsTableName": "migrations",
   "cli": {
