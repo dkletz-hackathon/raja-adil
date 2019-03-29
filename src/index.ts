@@ -4,10 +4,10 @@ import DatabaseService from './DatabaseService';
 import * as http from 'http';
 
 async function start() {
-  await DatabaseService.getConnection();
+  await DatabaseService.createConnection();
   const server = new Server();
   const app = http.createServer(server.express);
-  const port = process.env.PORT || 5000;
+  const port = process.env.PORT || 3030;
   // Listen to port
   app.listen(port);
   app.on('error', onError.bind(this));

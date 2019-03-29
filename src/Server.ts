@@ -23,9 +23,21 @@ class Server {
     this.express.use(
       async function(
         error, req: express.Request, res: express.Response, next: express.NextFunction) {
-          return res.status(500).json({
-            error: error.message
+        if (error.code === "error/not-found") {
+          return res.status(404).json({
+            error: error.message,
+            code: error.code
           });
+        }
+        if (error.code === "error/login-error") {
+          return res.status(400).json({
+            error: error.message,
+            code: error.code
+          });
+        }
+        return res.status(500).json({
+          error: error.message
+        });
         })
   }
 
@@ -33,6 +45,7 @@ class Server {
     this.express.get('/', (req, res) => {
       res.json('OK');
     });
+    this.express.use("", require("./routes").default);
   }
 
 }
