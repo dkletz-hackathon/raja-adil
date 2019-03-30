@@ -1,5 +1,3 @@
-# DenkiAPI
+# RajaAdilAPI
 
-Denki's RESTful API as Backend Server for the system
-
-Documentation regarding application can be found here https://bit.ly/2H0aLj3
+Service to maintain and handle transaction issued on Jelajah Banyu
